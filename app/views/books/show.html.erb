@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheets" href="../../stylesheets/books.scss">
+  <title>WebCampBackendNew</title>
+</head>
+
+<body>
+
+    <p id="notice"></p>
+
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>errors prohibited this book from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+  <%= notice %>
+
+  <p>
+    <strong>Title:</strong>
+    <!--タイトルを表示させる-->
+    <%= @book.title %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+    <!--bodyを表示させる-->
+    <%= @book.body %>
+  </p>
+
+  <%= link_to 'Edit', edit_book_path(@book.id) %> |
+  <%= link_to 'Back', "/books" %>
+
+
+</body>
+
+</html>
